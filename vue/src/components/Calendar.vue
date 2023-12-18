@@ -1,3 +1,9 @@
+<!--
+ * @Author: suzhenghui 343196323@qq.com
+ * @Date: 2023-12-2 20:26:42
+ * @LastEditors: suzhenghui 343196323@qq.com
+ * @Description: 首页日历组件
+-->
 <template>
   <div class="calendar">
     <section class="header">
@@ -9,55 +15,55 @@
       </li>
     </ul>
     <section
-        ref="calendar"
-        :style="{
+      ref="calendar"
+      :style="{
         height: isWeekView
           ? `${itemHeight + touchAreaHeight}px`
           : `${lineNum * itemHeight + touchAreaHeight}px`,
         transitionDuration: `${needHeightAnimation ? transitionDuration : 0}s`,
       }"
-        class="data-container"
-        @touchend="touchEnd"
-        @touchstart="touchStart"
-        @touchmove.stop.prevent="touchMove"
+      class="data-container"
+      @touchend="touchEnd"
+      @touchstart="touchStart"
+      @touchmove.stop.prevent="touchMove"
     >
       <section
-          :style="{
+        :style="{
           transform: `translateX(${-(translateIndex + 1) * 100}%)`,
           transitionDuration: `${needAnimation ? transitionDuration : 0}s`,
         }"
-          class="month-area"
+        class="month-area"
       >
         <div
-            :style="{
+          :style="{
             transform: `translateY(${offsetY}px)`,
             transitionDuration: `${
               needHeightAnimation ? transitionDuration : 0
             }s`,
           }"
-            class="banner-area"
+          class="banner-area"
         >
           <ul
-              v-for="(monthItem, monthIndex) in allDataArr"
-              :key="monthIndex"
-              :style="{
+            v-for="(monthItem, monthIndex) in allDataArr"
+            :key="monthIndex"
+            :style="{
               transform: `translateX(${
                 (translateIndex + isTouching ? touch.x : 0) * 100
               }%)`,
               transitionDuration: `${isTouching ? 0 : transitionDuration}s`,
             }"
-              class="data-area"
+            class="data-area"
           >
             <li
-                v-for="(item, index) in monthItem"
-                :key="index"
-                :class="[
+              v-for="(item, index) in monthItem"
+              :key="index"
+              :class="[
                 'data-item',
                 { selected: item.isSelected },
                 { 'other-item': item.type !== 'normal' && !isWeekView },
               ]"
-                :style="`height: ${itemHeight}px`"
-                @click="checkoutDate(item)"
+              :style="`height: ${itemHeight}px`"
+              @click="checkoutDate(item)"
             >
               <span class="data-font calendar-item">{{ item.day }}</span>
             </li>
@@ -148,10 +154,10 @@ export default {
       }
 
       setTimeout(
-          () => {
-            delayHandle();
-          },
-          this.isClicked && this.isWeekView ? 0 : this.transitionDuration * 1000
+        () => {
+          delayHandle();
+        },
+        this.isClicked && this.isWeekView ? 0 : this.transitionDuration * 1000
       );
     },
     // 获取当前日期
@@ -164,7 +170,7 @@ export default {
     },
     // 获取指定月份数据
     getMonthData(date, unSelected = false) {
-      const {year, month, day} = date;
+      const { year, month, day } = date;
       let dataArr = [];
       let daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
@@ -235,10 +241,10 @@ export default {
 
       this.selectData.day = selectData.day;
       const oldSelectIndex = this.dataArr.findIndex(
-          (item) => item.isSelected && item.type === "normal"
+        (item) => item.isSelected && item.type === "normal"
       );
       const newSelectIndex = this.dataArr.findIndex(
-          (item) => item.day === selectData.day && item.type === "normal"
+        (item) => item.day === selectData.day && item.type === "normal"
       );
 
       if (this.dataArr[oldSelectIndex])
@@ -248,7 +254,7 @@ export default {
     },
     // 获取前(后)一个月的年月日信息
     getPreMonth(date, appointDay = 1) {
-      let {year, month} = date || this.selectData;
+      let { year, month } = date || this.selectData;
       if (month === 1) {
         year -= 1;
         month = 12;
@@ -256,10 +262,10 @@ export default {
         month -= 1;
       }
 
-      return {year, month, day: appointDay};
+      return { year, month, day: appointDay };
     },
     getNextMonth(appointDay = 1) {
-      let {year, month} = this.selectData;
+      let { year, month } = this.selectData;
       if (month === 12) {
         year += 1;
         month = 1;
@@ -267,7 +273,7 @@ export default {
         month += 1;
       }
 
-      return {year, month, day: appointDay};
+      return { year, month, day: appointDay };
     },
     // 切换上(下)一月
     handlePreMonth() {
@@ -334,7 +340,7 @@ export default {
     },
     touchEnd() {
       this.isTouching = false;
-      const {x, y} = this.touch;
+      const { x, y } = this.touch;
 
       // 月视图
       if (Math.abs(x) > Math.abs(y) && Math.abs(x) > 0.3) {
@@ -351,8 +357,8 @@ export default {
 
       // 周视图
       if (
-          Math.abs(y) > Math.abs(x) &&
-          Math.abs(y * this.$refs.calendar.offsetHeight) > 50
+        Math.abs(y) > Math.abs(x) &&
+        Math.abs(y * this.$refs.calendar.offsetHeight) > 50
       ) {
         if (y > 0) {
           // 下
@@ -377,13 +383,13 @@ export default {
       const sliceStart = (indexOfLine - 1) * 7;
       const sliceEnd = sliceStart + 7;
 
-      return {indexOfLine, totalLine, sliceStart, sliceEnd};
+      return { indexOfLine, totalLine, sliceStart, sliceEnd };
     },
     // 生成前(后)一周数据
     dealWeekViewSliceStart() {
       const selectedIndex = this.dataArr.findIndex((item) => item.isSelected);
-      const {indexOfLine, totalLine, sliceStart, sliceEnd} =
-          this.getInfoOfWeekView(selectedIndex, this.dataArr.length);
+      const { indexOfLine, totalLine, sliceStart, sliceEnd } =
+        this.getInfoOfWeekView(selectedIndex, this.dataArr.length);
 
       this.offsetY = -((indexOfLine - 1) * this.itemHeight);
 
@@ -392,12 +398,12 @@ export default {
         const preInfo = this.getPreMonth();
         const preDataArr = this.getMonthData(preInfo, true);
         const preDay =
-            this.dataArr[0].day - 1 || preDataArr[preDataArr.length - 1].day;
+          this.dataArr[0].day - 1 || preDataArr[preDataArr.length - 1].day;
         const preIndex = preDataArr.findIndex(
-            (item) => item.day === preDay && item.type === "normal"
+          (item) => item.day === preDay && item.type === "normal"
         );
-        const {sliceStart: preSliceStart, sliceEnd: preSliceEnd} =
-            this.getInfoOfWeekView(preIndex, preDataArr.length);
+        const { sliceStart: preSliceStart, sliceEnd: preSliceEnd } =
+          this.getInfoOfWeekView(preIndex, preDataArr.length);
         this.lastWeek = preDataArr.slice(preSliceStart, preSliceEnd);
       } else {
         this.lastWeek = this.dataArr.slice(sliceStart - 7, sliceEnd - 7);
@@ -408,12 +414,12 @@ export default {
         const nextInfo = this.getNextMonth();
         const nextDataArr = this.getMonthData(nextInfo, true);
         const nextDay =
-            this.dataArr[this.dataArr.length - 1].type === "normal"
-                ? 1
-                : this.dataArr[this.dataArr.length - 1].day + 1;
+          this.dataArr[this.dataArr.length - 1].type === "normal"
+            ? 1
+            : this.dataArr[this.dataArr.length - 1].day + 1;
         const nextIndex = nextDataArr.findIndex((item) => item.day === nextDay);
-        const {sliceStart: nextSliceStart, sliceEnd: nextSliceEnd} =
-            this.getInfoOfWeekView(nextIndex, nextDataArr.length);
+        const { sliceStart: nextSliceStart, sliceEnd: nextSliceEnd } =
+          this.getInfoOfWeekView(nextIndex, nextDataArr.length);
         this.nextWeek = nextDataArr.slice(nextSliceStart, nextSliceEnd);
       } else {
         this.nextWeek = this.dataArr.slice(sliceStart + 7, sliceEnd + 7);
@@ -430,11 +436,11 @@ export default {
     },
     // 处理周数据
     dealWeekData(type) {
-      const {year, month, day} =
-          type === "PRE_WEEK"
-              ? this.lastWeek.find((item) => item.type === "normal")
-              : this.nextWeek[0];
-      this.selectData = {year, month, day};
+      const { year, month, day } =
+        type === "PRE_WEEK"
+          ? this.lastWeek.find((item) => item.type === "normal")
+          : this.nextWeek[0];
+      this.selectData = { year, month, day };
       this.dataArr = this.getMonthData(this.selectData);
       this.lineNum = Math.ceil(this.dataArr.length / 7);
       this.offsetY -= this.itemHeight;
