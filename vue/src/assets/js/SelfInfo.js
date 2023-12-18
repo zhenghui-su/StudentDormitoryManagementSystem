@@ -1,6 +1,12 @@
+/*
+ * @Author: suzhenghui 343196323@qq.com
+ * @Date: 2023-12-04 22:42:34
+ * @LastEditors: suzhenghui 343196323@qq.com
+ * @Description: 个人信息script内容
+ */
 import request from "@/utils/request";
 
-const {ElMessage} = require("element-plus");
+const { ElMessage } = require("element-plus");
 export default {
     name: "selfInfo",
     data() {
@@ -62,7 +68,7 @@ export default {
             },
             rules: {
                 username: [
-                    {required: true, message: "请输入账号", trigger: "blur"},
+                    { required: true, message: "请输入账号", trigger: "blur" },
                     {
                         pattern: /^[a-zA-Z0-9]{4,9}$/,
                         message: "必须由 4 到 9 个字母或数字组成",
@@ -70,29 +76,29 @@ export default {
                     },
                 ],
                 name: [
-                    {required: true, message: "请输入姓名", trigger: "blur"},
+                    { required: true, message: "请输入姓名", trigger: "blur" },
                     {
                         pattern: /^(?:[\u4E00-\u9FA5·]{2,10})$/,
                         message: "必须由 2 到 10 个汉字组成",
                         trigger: "blur",
                     },
                 ],
-                gender: [{required: true, message: "请选择性别", trigger: "change"}],
+                gender: [{ required: true, message: "请选择性别", trigger: "change" }],
                 age: [
-                    {required: true, message: "请输入年龄", trigger: "blur"},
-                    {type: "number", message: "年龄必须为数字值", trigger: "blur"},
+                    { required: true, message: "请输入年龄", trigger: "blur" },
+                    { type: "number", message: "年龄必须为数字值", trigger: "blur" },
                     {
                         pattern: /^(1|[1-9]\d?|100)$/,
                         message: "范围：1-100",
                         trigger: "blur",
                     },
                 ],
-                phoneNum: [{required: true, validator: checkPhone, trigger: "blur"}],
+                phoneNum: [{ required: true, validator: checkPhone, trigger: "blur" }],
                 email: [
-                    {type: "email", message: "请输入正确的邮箱地址", trigger: "blur"},
+                    { type: "email", message: "请输入正确的邮箱地址", trigger: "blur" },
                 ],
                 password: [
-                    {required: true, message: "请输入密码", trigger: "blur"},
+                    { required: true, message: "请输入密码", trigger: "blur" },
                     {
                         min: 6,
                         max: 32,
@@ -100,7 +106,7 @@ export default {
                         trigger: "blur",
                     },
                 ],
-                checkPass: [{validator: checkPass, trigger: "blur"}],
+                checkPass: [{ validator: checkPass, trigger: "blur" }],
             },
             display: {
                 display: "none",
@@ -147,7 +153,7 @@ export default {
         },
         cancel() {
             this.$refs.form.resetFields();
-            this.display = {display: "none"};
+            this.display = { display: "none" };
             this.showpassword = true;
             this.editJudge = true;
             this.disabled = true;
@@ -182,12 +188,12 @@ export default {
         },
         EditPass() {
             if (this.editJudge) {
-                this.display = {display: "flex"};
+                this.display = { display: "flex" };
                 this.showpassword = false;
                 this.disabled = false;
                 this.editJudge = false;
             } else {
-                this.display = {display: "none"};
+                this.display = { display: "none" };
                 this.showpassword = true;
                 this.editJudge = true;
                 this.disabled = true;
@@ -197,9 +203,9 @@ export default {
         async init(data) {
             if (data === null || data === "") {
                 console.log("用户未设置头像");
-                this.imgDisplay = {display: "none"};
+                this.imgDisplay = { display: "none" };
             } else {
-                this.imgDisplay = {display: "block"};
+                this.imgDisplay = { display: "block" };
                 console.log("头像名称：" + data);
                 await request.get("/files/initAvatar/" + data).then((res) => {
                     if (res.code === "0") {
