@@ -1,9 +1,14 @@
-import {createApp} from 'vue'
+/*
+ * @Author: suzhenghui 343196323@qq.com
+ * @Date: 2023-11-24 20:43:31
+ * @LastEditors: suzhenghui 343196323@qq.com
+ * @Description: 主函数App
+ */
+import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
 import './assets/css/global.css'
-// element-plus
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 import * as ELIcons from '@element-plus/icons-vue'
