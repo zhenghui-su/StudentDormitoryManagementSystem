@@ -1,6 +1,12 @@
+/*
+ * @Author: suzhenghui 343196323@qq.com
+ * @Date: 2023-12-03 19:06:16
+ * @LastEditors: suzhenghui 343196323@qq.com
+ * @Description: 宿舍信息-楼宇管理script内容
+ */
 import request from "@/utils/request";
 
-const {ElMessage} = require("element-plus");
+const { ElMessage } = require("element-plus");
 
 export default {
     name: "BuildingInfo",
@@ -49,29 +55,29 @@ export default {
             },
             rules: {
                 dormRoomId: [
-                    {required: true, message: "请输入房间号", trigger: "blur"},
-                    {pattern: /^[0-9]{4}$/, message: "范围：1000-9999", trigger: "blur"},
+                    { required: true, message: "请输入房间号", trigger: "blur" },
+                    { pattern: /^[0-9]{4}$/, message: "范围：1000-9999", trigger: "blur" },
                 ],
                 floorNum: [
-                    {required: true, message: "请输入楼层数", trigger: "blur"},
-                    {pattern: /^[1-3]$/, message: "范围：1-3", trigger: "blur"},
+                    { required: true, message: "请输入楼层数", trigger: "blur" },
+                    { pattern: /^[1-3]$/, message: "范围：1-3", trigger: "blur" },
                 ],
                 dormBuildId: [
-                    {required: true, message: "请输入楼宇号数", trigger: "blur"},
-                    {pattern: /^[1-4]$/, message: "范围：1-4", trigger: "blur"},
+                    { required: true, message: "请输入楼宇号数", trigger: "blur" },
+                    { pattern: /^[1-4]$/, message: "范围：1-4", trigger: "blur" },
                 ],
                 maxCapacity: [
-                    {required: true, message: "请输入房间可住人数", trigger: "blur"},
-                    {pattern: /^[0-4]$/, message: "范围：0-4", trigger: "blur"},
+                    { required: true, message: "请输入房间可住人数", trigger: "blur" },
+                    { pattern: /^[0-4]$/, message: "范围：0-4", trigger: "blur" },
                 ],
                 currentCapacity: [
-                    {required: true, message: "请输入当前已住人数", trigger: "blur"},
-                    {pattern: /^[0-4]$/, message: "范围：0-4", trigger: "blur"},
+                    { required: true, message: "请输入当前已住人数", trigger: "blur" },
+                    { pattern: /^[0-4]$/, message: "范围：0-4", trigger: "blur" },
                 ],
-                firstBed: [{validator: checkStuNum, trigger: "blur"}],
-                secondBed: [{validator: checkStuNum, trigger: "blur"}],
-                thirdBed: [{validator: checkStuNum, trigger: "blur"}],
-                fourthBed: [{validator: checkStuNum, trigger: "blur"}],
+                firstBed: [{ validator: checkStuNum, trigger: "blur" }],
+                secondBed: [{ validator: checkStuNum, trigger: "blur" }],
+                thirdBed: [{ validator: checkStuNum, trigger: "blur" }],
+                fourthBed: [{ validator: checkStuNum, trigger: "blur" }],
             },
         };
     },
