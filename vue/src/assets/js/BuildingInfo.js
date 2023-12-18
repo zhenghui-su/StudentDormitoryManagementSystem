@@ -1,6 +1,12 @@
+/*
+ * @Author: suzhenghui 343196323@qq.com
+ * @Date: 2023-12-03 14:52:56
+ * @LastEditors: suzhenghui 343196323@qq.com
+ * @Description: 宿舍管理-楼宇信息script内容
+ */
 import request from "@/utils/request";
 
-const {ElMessage} = require("element-plus");
+const { ElMessage } = require("element-plus");
 
 export default {
     name: "BuildingInfo",
@@ -23,7 +29,7 @@ export default {
             },
             rules: {
                 dormBuildId: [
-                    {required: true, message: "请输入编号", trigger: "blur"},
+                    { required: true, message: "请输入编号", trigger: "blur" },
                     {
                         pattern: /^(1|[1-9]\d?|100)$/,
                         message: "范围：1-100",
@@ -31,10 +37,10 @@ export default {
                     },
                 ],
                 dormBuildName: [
-                    {required: true, message: "请输入名称", trigger: "blur"},
+                    { required: true, message: "请输入名称", trigger: "blur" },
                 ],
                 dormBuildDetail: [
-                    {required: true, message: "请输入备注", trigger: "blur"},
+                    { required: true, message: "请输入备注", trigger: "blur" },
                 ],
             },
         };
