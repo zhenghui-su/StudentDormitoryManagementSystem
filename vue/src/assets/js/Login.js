@@ -1,6 +1,12 @@
+/*
+ * @Author: suzhenghui 343196323@qq.com
+ * @Date: 2023-11-25 18:39:42
+ * @LastEditors: suzhenghui 343196323@qq.com
+ * @Description: 登录界面vue的script内容
+ */
 import request from "@/utils/request";
 
-const {ElMessage} = require("element-plus");
+const { ElMessage } = require("element-plus");
 export default {
     name: "Login",
     data() {
@@ -13,16 +19,16 @@ export default {
             },
             rules: {
                 username: [
-                    {required: true, message: "请输入用户名", trigger: "blur"},
+                    { required: true, message: "请输入用户名", trigger: "blur" },
                 ],
-                password: [{required: true, message: "请输入密码", trigger: "blur"}],
-                identity: [{required: true, message: "请选择身份", trigger: "blur"}],
+                password: [{ required: true, message: "请输入密码", trigger: "blur" }],
+                identity: [{ required: true, message: "请选择身份", trigger: "blur" }],
             },
         };
     },
     computed: {
         disabled() {
-            const {username, password, identity} = this.form;
+            const { username, password, identity } = this.form;
             return Boolean(username && password && identity);
         },
     },
@@ -40,7 +46,7 @@ export default {
                             // 登陆成功跳转主页
                             window.sessionStorage.setItem("user", JSON.stringify(res.data));
                             window.sessionStorage.setItem("identity", JSON.stringify(this.form.identity));
-                            this.$router.replace({path: "/home"});
+                            this.$router.replace({ path: "/home" });
                         } else {
                             ElMessage({
                                 message: res.msg,
