@@ -1,7 +1,7 @@
 <!--
  * @Author: suzhenghui 343196323@qq.com
  * @Date: 2023-11-25 14:08:47
- * @LastEditors: suzhenghui 343196323@qq.com
+ * @LastEditors: 苏征辉 343196323@qq.com
  * @Description: 登录界面
 -->
 <template>
@@ -9,7 +9,7 @@
     <div style="width: 400px; margin: 150px auto">
       <div
         style="
-          color: black;
+          color: white;
           font-size: 30px;
           text-align: center;
           padding: 30px 0;
@@ -33,17 +33,17 @@
           ></el-input>
         </el-form-item>
         <el-form-item :model="form" prop="identity">
-          <el-radio v-model="form.identity" label="stu" style="color: grey"
+          <el-radio v-model="form.identity" label="stu" style="color: skyblue"
             >学生</el-radio
           >
           <el-radio
             v-model="form.identity"
             label="dormManager"
-            style="color: grey"
-            >宿舍管理员</el-radio
+            style="color: skyblue"
+            >宿管</el-radio
           >
-          <el-radio v-model="form.identity" label="admin" style="color: grey"
-            >后勤管理中心</el-radio
+          <el-radio v-model="form.identity" label="admin" style="color: skyblue"
+            >系统管理员</el-radio
           >
         </el-form-item>
         <el-form-item>
@@ -58,7 +58,7 @@
       </el-form>
     </div>
   </div>
-  <div class="footer">©author 苏征辉 谢俊邑 杨雨鑫</div>
+  <div class="footer">©作者 苏征辉 谢俊邑 杨雨鑫</div>
 </template>
 <script src="@/assets/js/Login.js"></script>
 <style scoped>
@@ -68,29 +68,8 @@
   width: 100%;
   top: 0;
   left: 0;
-  background: linear-gradient(
-    135deg,
-    hsl(170deg, 80%, 70%),
-    hsl(190deg, 80%, 70%),
-    hsl(250deg, 80%, 70%),
-    hsl(320deg, 80%, 70%),
-    hsl(320deg, 80%, 70%),
-    hsl(250deg, 80%, 70%),
-    hsl(190deg, 80%, 70%),
-    hsl(190deg, 80%, 70%),
-    hsl(170deg, 80%, 70%)
-  );
-  background-size: 600%;
-  animation: myanimation 15s linear infinite;
-}
-
-@keyframes myanimation {
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: 100% 100%;
-  }
+  background: url("../assets/background.png");
+  background-size: 100%;
 }
 
 .footer {

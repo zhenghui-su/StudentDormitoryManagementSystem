@@ -1,12 +1,12 @@
 <!--
  * @Author: suzhenghui 343196323@qq.com
  * @Date: 2023-12-01 20:42:12
- * @LastEditors: suzhenghui 343196323@qq.com
+ * @LastEditors: 苏征辉 343196323@qq.com
  * @Description: 顶部时间(时钟)显示组件
 -->
 <template>
   <el-container>
-    <span>{{ dateFormat(date) }}</span>
+    <span>时间: {{ dateFormat(date) }}</span>
   </el-container>
 </template>
 

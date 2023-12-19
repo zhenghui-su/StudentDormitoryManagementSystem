@@ -1,53 +1,12 @@
 <!--
  * @Author: suzhenghui 343196323@qq.com
  * @Date: 2023-11-26 20:25:35
- * @LastEditors: suzhenghui 343196323@qq.com
+ * @LastEditors: 苏征辉 343196323@qq.com
  * @Description: 首页
 -->
 <template>
   <el-card style="margin: 15px; min-height: calc(100vh - 80px)">
-    <!--    头部数据-->
-    <div>
-      <el-row :gutter="20" class="topInfo">
-        <el-col :span="6">
-          <div id="stuNumDiv" class="el-colDiv">
-            <div id="ssv1-main-text" class="nowDiv">实时</div>
-            <span class="title">学生统计</span><br />
-            <span class="digital">{{ this.studentNum }}</span
-            ><br />
-            <span class="last-span">当前分类总记录数</span>
-          </div>
-        </el-col>
-        <el-col :span="6">
-          <div id="haveRoomDiv" class="el-colDiv">
-            <div id="ssv2-main-text" class="nowDiv">实时</div>
-            <span class="title">住宿人数</span><br />
-            <span class="digital">{{ this.haveRoomStudentNum }}</span
-            ><br />
-            <span class="last-span">当前分类总记录数</span>
-          </div>
-        </el-col>
-        <el-col :span="6">
-          <div id="repairNum" class="el-colDiv">
-            <div id="ssv3-main-text" class="nowDiv">实时</div>
-            <span class="title">报修统计</span><br />
-            <span class="digital">{{ this.repairOrderNum }}</span
-            ><br />
-            <span class="last-span">当前分类总记录数</span>
-          </div>
-        </el-col>
-        <el-col :span="6">
-          <div id="emptyRoom" class="el-colDiv">
-            <div id="ssv4-main-text" class="nowDiv">实时</div>
-            <span class="title">空宿舍统计</span><br />
-            <span class="digital">{{ this.noFullRoomNum }}</span
-            ><br />
-            <span class="last-span">当前分类总记录数</span>
-          </div>
-        </el-col>
-      </el-row>
-    </div>
-    <!-- 下部-->
+    <!-- 正部-->
     <div
       style="
         display: flex;
@@ -94,12 +53,44 @@
       </div>
       <!--  右侧-->
       <div style="margin-left: 5%">
-        <!--   天气组件-->
-        <weather />
-        <!--    日历组件-->
-        <el-card style="width: 380px; max-height: 440px; margin-top: 17px">
-          <Calender />
-        </el-card>
+        <el-row :gutter="20" class="topInfo">
+          <el-col>
+            <div id="stuNumDiv" class="el-colDiv">
+              <div id="ssv1-main-text" class="nowDiv">实时</div>
+              <span class="title">学生统计</span><br />
+              <span class="digital">{{ this.studentNum }}</span
+              ><br />
+              <span class="last-span">当前分类总记录数</span>
+            </div>
+          </el-col>
+          <el-col>
+            <div id="haveRoomDiv" class="el-colDiv">
+              <div id="ssv2-main-text" class="nowDiv">实时</div>
+              <span class="title">住宿人数</span><br />
+              <span class="digital">{{ this.haveRoomStudentNum }}</span
+              ><br />
+              <span class="last-span">当前分类总记录数</span>
+            </div>
+          </el-col>
+          <el-col>
+            <div id="repairNum" class="el-colDiv">
+              <div id="ssv3-main-text" class="nowDiv">实时</div>
+              <span class="title">报修统计</span><br />
+              <span class="digital">{{ this.repairOrderNum }}</span
+              ><br />
+              <span class="last-span">当前分类总记录数</span>
+            </div>
+          </el-col>
+          <el-col>
+            <div id="emptyRoom" class="el-colDiv">
+              <div id="ssv4-main-text" class="nowDiv">实时</div>
+              <span class="title">空宿舍统计</span><br />
+              <span class="digital">{{ this.noFullRoomNum }}</span
+              ><br />
+              <span class="last-span">当前分类总记录数</span>
+            </div>
+          </el-col>
+        </el-row>
       </div>
     </div>
   </el-card>

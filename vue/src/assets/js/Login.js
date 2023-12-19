@@ -17,6 +17,7 @@ export default {
                 password: "",
                 identity: "",
             },
+            /** 规则: 必填项,提示信息,失去焦点后验证规则 */
             rules: {
                 username: [
                     { required: true, message: "请输入用户名", trigger: "blur" },
@@ -27,12 +28,14 @@ export default {
         };
     },
     computed: {
+        /** disabled属性:收集表单,如果没有填写表单,登录按钮不解禁 */
         disabled() {
             const { username, password, identity } = this.form;
             return Boolean(username && password && identity);
         },
     },
     methods: {
+        /** 登陆方法 */
         login() {
             this.$refs.form.validate((valid) => {
                 if (valid) {
@@ -48,6 +51,7 @@ export default {
                             window.sessionStorage.setItem("identity", JSON.stringify(this.form.identity));
                             this.$router.replace({ path: "/home" });
                         } else {
+                            /** 错误信息 */
                             ElMessage({
                                 message: res.msg,
                                 type: "error",

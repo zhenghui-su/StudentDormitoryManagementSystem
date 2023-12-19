@@ -1,10 +1,11 @@
 <!--
  * @Author: suzhenghui 343196323@qq.com
  * @Date: 2023-12-03 18:20:23
- * @LastEditors: suzhenghui 343196323@qq.com
+ * @LastEditors: 苏征辉 343196323@qq.com
  * @Description: 宿舍管理-房间信息
 -->
 <template>
+  <!-- eslint-disable  -->
   <div>
     <el-breadcrumb separator-icon="ArrowRight" style="margin: 16px">
       <el-breadcrumb-item :to="{ path: '/home' }">首页</el-breadcrumb-item>

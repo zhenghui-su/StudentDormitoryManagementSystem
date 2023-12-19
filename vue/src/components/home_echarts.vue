@@ -1,7 +1,7 @@
 <!--
  * @Author: suzhenghui 343196323@qq.com
  * @Date: 2023-11-30 23:18:34
- * @LastEditors: suzhenghui 343196323@qq.com
+ * @LastEditors: 苏征辉 343196323@qq.com
  * @Description: 首页柱状图组件
 -->
 <template>
@@ -22,10 +22,18 @@ export default {
         barWidth: 35,
         tooltip: {},
         xAxis: {
+          name: "栋",
           data: [],
+          axisLabel: {
+            formatter: "{value} 栋",
+          },
         },
         yAxis: {
+          name: "人数",
           type: "value",
+          axisLabel: {
+            formatter: "{value} 人",
+          },
         },
         series: [
           {

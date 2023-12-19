@@ -1,19 +1,16 @@
 /*
  * @Author: suzhenghui 343196323@qq.com
  * @Date: 2023-11-26 22:26:20
- * @LastEditors: suzhenghui 343196323@qq.com
+ * @LastEditors: 苏征辉 343196323@qq.com
  * @Description: 首页vue的script内容
  */
-import weather from "@/components/weather";
-import Calender from "@/components/Calendar";
+
 import request from "@/utils/request";
 import home_echarts from "@/components/home_echarts";
 
 export default {
     name: "Home",
     components: {
-        weather,
-        Calender,
         home_echarts,
     },
     data() {

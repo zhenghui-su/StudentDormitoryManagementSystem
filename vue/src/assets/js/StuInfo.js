@@ -1,7 +1,7 @@
 /*
  * @Author: suzhenghui 343196323@qq.com
  * @Date: 2023-12-2 21:25:37
- * @LastEditors: suzhenghui 343196323@qq.com
+ * @LastEditors: 苏征辉 343196323@qq.com
  * @Description: 用户管理-学生管理script内容
  */
 import request from "@/utils/request";
@@ -67,8 +67,8 @@ export default {
                 username: [
                     { required: true, message: "请输入学号", trigger: "blur" },
                     {
-                        pattern: /^[a-zA-Z0-9]{4,9}$/,
-                        message: "必须由 2 到 5 个字母或数字组成",
+                        pattern: /^51\d{8}$/,
+                        message: "必须由 10 个数字组成,且51开头",
                         trigger: "blur",
                     },
                 ],

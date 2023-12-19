@@ -1,7 +1,7 @@
 <!--
  * @Author: suzhenghui 343196323@qq.com
  * @Date: 2023-12-04 20:16:42
- * @LastEditors: suzhenghui 343196323@qq.com
+ * @LastEditors: 苏征辉 343196323@qq.com
  * @Description: 个人信息界面
 -->
 <template>
@@ -125,7 +125,11 @@
           </el-tooltip>
         </div>
         <div class="img" style="margin-left: 130px">
-          <img alt="" src="../../public/self_Space.png" />
+          <img
+            alt=""
+            src="../../public/头像.jpg"
+            style="width: 500px; height: 500px"
+          />
         </div>
       </div>
       <div>
